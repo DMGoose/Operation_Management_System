@@ -1,40 +1,38 @@
-<template>  
-    <svg :style="{ width: width, height: height }">
-        <use :xlink:href="prefix + name" :fill="color"></use>
-    </svg>
+<template>
+  <svg :style="{ width: width, height: height }">
+    <use :xlink:href="prefix + name" :fill="color"></use>
+  </svg>
 </template>
-  
+
 <script setup lang="ts">
 //接收parent组件传递过来的参数
 defineProps({
-    
-    //xlink:href属性值的前缀
-    prefix: {
-        type: String,
-        default: '#icon-'
-    },
-    
-    //svg矢量图的名字
-    name: String,
+  //xlink:href属性值的前缀
+  prefix: {
+    type: String,
+    default: '#icon-',
+  },
 
-    //svg图标的颜色
-    color: {
-        type: String,
-        default: ""
-    },
+  //svg矢量图的名字
+  name: String,
 
-    //svg宽度
-    width: {
-        type: String,
-        default: '16px'
-    },
+  //svg图标的颜色
+  color: {
+    type: String,
+    default: '',
+  },
 
-    //svg高度
-    height: {
-        type: String,
-        default: '16px'
-    }
+  //svg宽度
+  width: {
+    type: String,
+    default: '16px',
+  },
 
+  //svg高度
+  height: {
+    type: String,
+    default: '16px',
+  },
 })
 </script>
 <style scoped></style>

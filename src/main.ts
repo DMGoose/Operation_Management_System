@@ -31,15 +31,13 @@ import '@/styles/index.scss'
 import axios from 'axios'
 //登录接口
 axios({
-    url: '/api/user/login',
-    method: 'post',
-    data:{
-        username:'admin',
-        password:'111111'
-    }
+  url: '/api/user/login',
+  method: 'post',
+  data: {
+    username: 'admin',
+    password: '111111',
+  },
 })
 
 //mounted
 app.mount('#app')
-
-
