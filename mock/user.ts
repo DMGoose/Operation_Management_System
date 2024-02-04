@@ -62,7 +62,10 @@ export default [
       const checkUser = createUserList().find((item) => item.token === token)
       //没有返回失败的信息
       if (!checkUser) {
-        return { code: 201, data: { message: 'Failed to get user information' } }
+        return {
+          code: 201,
+          data: { message: 'Failed to get user information' },
+        }
       }
       //如果有返回成功信息
       return { code: 200, data: { checkUser } }

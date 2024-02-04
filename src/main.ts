@@ -30,7 +30,7 @@ import '@/styles/index.scss'
 //引入路由, 进行注册
 import router from './router'
 //zhuce
-app.use(router);
+app.use(router)
 
 //引入仓库
 import pinia from '@/store/index'
@@ -38,7 +38,7 @@ import pinia from '@/store/index'
 app.use(pinia)
 
 //引入路由鉴权文件
-import './permission';
+import './permission'
 
 //暗黑模式需要的css样式
 import 'element-plus/theme-chalk/dark/css-vars.css'

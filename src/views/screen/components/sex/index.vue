@@ -2,53 +2,52 @@
   <div class="box1">
     <div class="title">
       <p>Sex Ratio</p>
-      <img src="../../images/dataScreen-title.png" alt="">
+      <img src="../../images/dataScreen-title.png" alt="" />
     </div>
     <div class="sex">
       <div class="women">
-        <img src="../../images/woman.png" alt="">
+        <img src="../../images/woman.png" alt="" />
       </div>
       <div class="man">
-        <img src="../../images/man.png" alt="">
+        <img src="../../images/man.png" alt="" />
       </div>
-      
-
     </div>
     <div class="rate">
       <p>Female 58%</p>
       <p>Male 42%</p>
     </div>
-    <div class="charts" ref='charts'></div>
+    <div class="charts" ref="charts"></div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
-import * as echarts from 'echarts';
+import { ref, onMounted } from 'vue'
+import * as echarts from 'echarts'
 //获取图形图标的DOM节点
-let charts = ref();
+let charts = ref()
 onMounted(() => {
   //初始化echarts实例
-  let mycharts = echarts.init(charts.value);
+  let mycharts = echarts.init(charts.value)
   //设置配置项
   mycharts.setOption({
     //组件标题
     title: {
-      text: 'Sex Ratio',//主标题
-      textStyle: {//主标题颜色
-        color: 'skyblue'
+      text: 'Sex Ratio', //主标题
+      textStyle: {
+        //主标题颜色
+        color: 'skyblue',
       },
-      left: '40%'
+      left: '40%',
     },
     //x|y
     xAxis: {
       show: false, //隐藏x轴
       min: 0,
-      max: 100
+      max: 100,
     },
     yAxis: {
       show: false, //隐藏y轴
-      type: 'category'  //可以使柱状图在y轴中间均匀分布
+      type: 'category', //可以使柱状图在y轴中间均匀分布
     },
     series: [
       {
@@ -58,10 +57,9 @@ onMounted(() => {
         z: 100,
         itemStyle: {
           color: 'pink',
-          borderRadius: 20
-        }
-      }
-      ,
+          borderRadius: 20,
+        },
+      },
       {
         type: 'bar',
         data: [100],
@@ -70,20 +68,18 @@ onMounted(() => {
         barGap: '-100%', //bar和bar之间的宽度
         itemStyle: {
           color: 'skyblue',
-          borderRadius: 20
-        }
-      }
+          borderRadius: 20,
+        },
+      },
     ],
     grid: {
       left: 0,
       top: 0,
       right: 0,
-      bottom: 0
-    }
-  });
+      bottom: 0,
+    },
+  })
 })
-
-
 </script>
 
 <style scoped lang="scss">
@@ -127,7 +123,6 @@ onMounted(() => {
       justify-content: center;
       align-items: center;
     }
-
   }
 
   .rate {

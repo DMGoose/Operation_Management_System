@@ -15,8 +15,8 @@ export default {
     //注册项目全部的全局组件
     Object.keys(allGloablComponent).forEach((key) => {
       //注册全局组件, key是组件的名字
-      app.component(key, allGloablComponent[key]);
-    });
+      app.component(key, allGloablComponent[key])
+    })
 
     //官网复制来的, 将element-plus提供的图标注册为全局组件, 所以其她组件就不要引入, 直接可以使用
     for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
