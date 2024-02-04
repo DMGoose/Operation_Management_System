@@ -27,17 +27,21 @@ app.use(globalComponent)
 //引用模板的全局样式
 import '@/styles/index.scss'
 
-//测试代码: 测试假的接口是否能使用
-import axios from 'axios'
-//登录接口
-axios({
-  url: '/api/user/login',
-  method: 'post',
-  data: {
-    username: 'admin',
-    password: '111111',
-  },
-})
+//引入路由, 进行注册
+import router from './router'
+//zhuce
+app.use(router);
+
+//引入仓库
+import pinia from '@/store/index'
+//安装仓库
+app.use(pinia)
+
+//引入路由鉴权文件
+import './permission';
+
+//暗黑模式需要的css样式
+import 'element-plus/theme-chalk/dark/css-vars.css'
 
 //mounted
 app.mount('#app')

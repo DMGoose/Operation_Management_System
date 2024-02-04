@@ -1,2 +1,18 @@
 //给项目提供的scss全局变量, 任意组件中就可以使用
-$color:red
+$color:red;
+
+//左侧菜单的宽度
+$base-menu-width:260px;
+$base-menu-min-width:50px;
+
+//左侧菜单的背景颜色
+$base-menu-background: #c9c9c9;
+
+//顶部导航的高度
+$base-tabbar-height: 50px;
+
+//左侧菜单logo的设置
+$base-logo-height: 50px;
+
+//左侧logo字体的大小
+$base-logo-title-fontSize:25px;

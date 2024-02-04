@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import path from 'path'
 
@@ -8,7 +8,9 @@ import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 
 //mock插件提供的方法
 import { viteMockServe } from 'vite-plugin-mock'
-export default defineConfig(({ command }) => {
+export default defineConfig(({ command,mode }) => {
+  //获取各种环境下的对应的变量, 生成环境对象
+  let env = loadEnv(mode, process.cwd()); //我要加载的哪个环境的文件, 以及这个文件在哪里
   //command用于获取当前开发的环境
   return {
     plugins: [
@@ -37,5 +39,18 @@ export default defineConfig(({ command }) => {
         },
       },
     },
+    //代理跨域
+    server:{
+      proxy:{
+        [env.VITE_APP_BASE_API]:{
+          //获取服务器地址设置
+          target: env.VITE_SERVE,
+          //需要代理跨域
+          changeOrigin: true,
+          //路径重写, 把'api' 替换成 ''
+          rewrite: (path) => path.replace(/^\/api/, ''),
+        }
+      }
+    }
   }
-})
+});
